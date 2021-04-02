@@ -14,7 +14,10 @@ setInterval(function(){
 
 
 
-
+$(".text-box").each(function(){
+    console.log($(this))
+    console.log($(this).attr("name"))
+})
 
 
 
