@@ -18,11 +18,19 @@ function handleFormSubmit(event){
     var spike = event.target.parentElement
     //getting our input from input field
     var spikeInput = event.target.previousElementSibling
+    // tine for that field
+    var boxTime = spike.id
     
-    
-    
+    if(spikeInput.value === ""){
+        console.log('invalid input')
+    } else {
+        localStorage.setItem(boxTime , spikeInput.value)
+    }
+
+
     console.log(spike.parentElement)
     console.log(spikeInput.value)
+    console.log(spike.id)
 }
 
 $('button').on('click' , handleFormSubmit)
