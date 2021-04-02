@@ -13,10 +13,16 @@ setInterval(function(){
 
 function handleFormSubmit(event){
     event.preventDefault()
-    var spike = event.target
+    
+    //button we click
+    var spike = event.target.parentElement
+    //getting our input from input field
+    var spikeInput = event.target.previousElementSibling
     
     
-    console.log(spike.parent())
+    
+    console.log(spike.parentElement)
+    console.log(spikeInput.value)
 }
 
 $('button').on('click' , handleFormSubmit)
