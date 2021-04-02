@@ -3,11 +3,18 @@ var currentDay  = moment().format(" dddd, MMM Do YY")
 $(titleTime).text(currentDay) 
 var schedule = $('.container')
 var timeBox = $(".input-group mb-3")
+
+console.log(schedule)
+
 // every second the current time is returned
 setInterval(function(){
     var currentTime = moment().format('LTS')
      return currentTime
 },1000)
+
+
+
+
 
 
 
@@ -18,7 +25,7 @@ function handleFormSubmit(event){
     var spike = event.target.parentElement
     //getting our input from input field
     var spikeInput = event.target.previousElementSibling
-    // tine for that field
+    // time for that field
     var boxTime = spike.id
     
     if(spikeInput.value === ""){
@@ -27,10 +34,14 @@ function handleFormSubmit(event){
         localStorage.setItem(boxTime , spikeInput.value)
     }
 
+    var StoredTask = localStorage.getItem(boxTime)
+    StoredTask = spikeInput.value
 
     console.log(spike.parentElement)
     console.log(spikeInput.value)
     console.log(spike.id)
 }
+
+
 
 $('button').on('click' , handleFormSubmit)
