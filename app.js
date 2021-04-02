@@ -4,7 +4,7 @@ $(titleTime).text(currentDay)
 var schedule = $('.container')
 var timeBox = $(".input-group mb-3")
 
-console.log(schedule)
+
 
 // every second the current time is returned
 setInterval(function(){
@@ -12,12 +12,6 @@ setInterval(function(){
      return currentTime
 },1000)
 
-
-
-$(".text-box").each(function(){
-    console.log($(this))
-    console.log($(this).attr("name"))
-})
 
 
 
@@ -37,12 +31,17 @@ function handleFormSubmit(event){
         localStorage.setItem(boxTime , spikeInput.value)
     }
 
-    var StoredTask = localStorage.getItem(boxTime)
-    StoredTask = spikeInput.value
+    $(".text-box").each(function(){
+        console.log($(this))
+        console.log($(this).attr("name"))
+    
+        var spikeReturn = localStorage.getItem($(this).attr("name"))
+        console.log(spikeReturn)
 
-    console.log(spike.parentElement)
-    console.log(spikeInput.value)
-    console.log(spike.id)
+        $(this).attr("name").value = spikeReturn
+
+    })
+    
 }
 
 
